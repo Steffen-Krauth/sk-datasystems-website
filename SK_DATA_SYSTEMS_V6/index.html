@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SK DATA SYSTEMS | SPS-Software & Maschinenautomatisierung</title>
+  <meta name="description" content="SK DATA SYSTEMS - SPS-Softwareentwicklung, Siemens SIMATIC S7, TIA Portal, SCL, Maschinenprogrammierung, WinCC, SCADA, Maschinenanbindung und OT/IT-Integration." />
+  <meta name="keywords" content="SPS Programmierung, Siemens SIMATIC, TIA Portal, SCL, Maschinenprogrammierung, Maschinenautomatisierung, WinCC, SCADA, OT IT Integration, OPC UA, MQTT, MES" />
+  <meta name="author" content="Steffen Krauth, SK DATA SYSTEMS" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#07111f" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+  <style>
+    :root{
+      --bg:#050913;--panel:#0d1a2e;--line:rgba(116,206,255,.17);--line2:rgba(116,206,255,.32);
+      --text:#eff7ff;--muted:#9eb3cc;--cyan:#62ddff;--blue:#2fb8ff;--teal:#2dd4bf;--green:#6ee7b7;
+      --shadow:0 24px 90px rgba(0,0,0,.42);--radius:22px;--max:1220px
+    }
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    html,body{margin:0;min-height:100%;background:radial-gradient(circle at 15% 8%,rgba(47,184,255,.20),transparent 30%),radial-gradient(circle at 88% 8%,rgba(45,212,191,.12),transparent 32%),linear-gradient(180deg,#050913 0%,#081323 42%,#050913 100%);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(116,206,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(116,206,255,.045) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,black,transparent 86%)}
+    body:after{content:"";position:fixed;inset:-35% -15%;z-index:0;pointer-events:none;background:linear-gradient(112deg,transparent 0%,transparent 43%,rgba(98,221,255,.08) 48%,transparent 54%,transparent 100%);animation:scan 14s ease-in-out infinite}
+    @keyframes scan{0%,100%{transform:translateX(-18%);opacity:.22}50%{transform:translateX(18%);opacity:.55}}
+    a{color:inherit;text-decoration:none}img{display:block;max-width:100%}p{color:var(--muted);margin-top:0}ul{color:var(--muted);padding-left:20px;margin-top:0}strong{color:var(--text)}
+    .page{position:relative;z-index:1}.container{width:min(var(--max),calc(100% - 40px));margin:0 auto}
+    header{position:sticky;top:0;z-index:80;background:rgba(5,9,19,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{display:flex;align-items:center;gap:14px;min-width:max-content}.brand img{width:54px;height:54px;object-fit:contain;border-radius:14px;background:rgba(255,255,255,.98);padding:5px;box-shadow:0 0 34px rgba(98,221,255,.20)}.brand b{display:block;font-size:17px;letter-spacing:.04em;line-height:1.15}.brand span{display:block;font-size:12px;color:var(--muted);font-weight:700}
+    nav{display:flex;gap:20px;align-items:center;color:var(--muted);font-size:14px;font-weight:700}nav a:hover{color:var(--cyan)}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:10px;border:1px solid var(--line2);background:rgba(98,221,255,.10);color:var(--text);font-size:14px;font-weight:800;box-shadow:0 12px 34px rgba(0,0,0,.20);transition:.18s}.button:hover{transform:translateY(-1px);background:rgba(98,221,255,.16);border-color:rgba(98,221,255,.60)}.button.primary{background:linear-gradient(135deg,var(--blue),var(--teal));border-color:transparent;color:#03101a}.button.secondary{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.12)}
+    .hero{position:relative;min-height:calc(100vh - 78px);display:grid;align-items:center;padding:92px 0 84px;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 48%,rgba(98,221,255,.15),transparent 35%),radial-gradient(circle at 82% 76%,rgba(45,212,191,.10),transparent 28%),linear-gradient(90deg,rgba(5,9,19,.86),rgba(5,9,19,.32));pointer-events:none}
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.04fr .96fr;gap:56px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--cyan);font-size:13px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;margin-bottom:18px}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 18px var(--green);animation:pulse 2.6s ease-in-out infinite}@keyframes pulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.55);opacity:.55}}
+    h1{font-size:clamp(43px,6vw,78px);line-height:.98;letter-spacing:-2.3px;margin:0 0 24px}.gradient{background:linear-gradient(135deg,var(--text),var(--cyan) 54%,var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}.lead{font-size:clamp(18px,2vw,22px);max-width:780px;color:#cbdcf0;margin-bottom:30px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 26px}.pills{display:flex;flex-wrap:wrap;gap:8px}.pill{padding:7px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.045);color:#b9cbe0;font-size:13px;font-weight:750}
+    .control{position:relative;min-height:610px;border:1px solid var(--line);border-radius:30px;background:radial-gradient(circle at 50% 42%,rgba(98,221,255,.18),transparent 31%),linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));box-shadow:var(--shadow);overflow:hidden}.control:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(98,221,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(98,221,255,.08) 1px,transparent 1px);background-size:38px 38px;opacity:.43}.control:after{content:"";position:absolute;width:1px;height:140%;top:-20%;left:50%;background:linear-gradient(transparent,rgba(98,221,255,.75),transparent);animation:sweep 5.3s linear infinite}@keyframes sweep{0%{transform:translateX(-390px)}100%{transform:translateX(390px)}}
+    .core{position:absolute;left:50%;top:50%;width:134px;height:134px;transform:translate(-50%,-50%);border-radius:25px;background:rgba(255,255,255,.98);display:grid;place-items:center;padding:13px;z-index:6;box-shadow:0 0 72px rgba(98,221,255,.32)}.orbit{position:absolute;left:50%;top:50%;border-radius:50%;border:1px dashed rgba(98,221,255,.28);transform:translate(-50%,-50%);z-index:1}.o1{width:260px;height:260px;animation:rotate 30s linear infinite}.o2{width:400px;height:400px;animation:rotate 46s linear infinite reverse}@keyframes rotate{to{transform:translate(-50%,-50%) rotate(360deg)}}
+    .node{position:absolute;z-index:5;min-width:145px;padding:14px 16px;border-radius:16px;border:1px solid var(--line2);background:rgba(5,13,28,.86);backdrop-filter:blur(12px);box-shadow:0 18px 50px rgba(0,0,0,.32)}.node b{display:block;line-height:1.1;padding-left:12px}.node span{display:block;color:var(--muted);font-size:12px;font-weight:700;margin-top:5px;padding-left:12px}.node:before{content:"";position:absolute;left:12px;top:14px;width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 15px var(--green)}.n1{left:28px;top:54px}.n2{right:28px;top:82px}.n3{left:42px;bottom:82px}.n4{right:52px;bottom:70px}.n5{left:50%;top:30px;transform:translateX(-50%)}.n6{left:50%;bottom:28px;transform:translateX(-50%)}
+    .line{position:absolute;height:1px;background:linear-gradient(90deg,transparent,rgba(98,221,255,.72),transparent);transform-origin:left center;z-index:2;opacity:.78;overflow:hidden}.line:after{content:"";position:absolute;left:-60px;width:52px;height:1px;background:linear-gradient(90deg,transparent,#fff,transparent);animation:packet 3s linear infinite}@keyframes packet{to{left:calc(100% + 60px)}}.l1{width:310px;left:140px;top:154px;transform:rotate(20deg)}.l2{width:310px;right:132px;top:180px;transform:rotate(158deg)}.l3{width:330px;left:160px;bottom:166px;transform:rotate(-22deg)}.l4{width:310px;right:160px;bottom:150px;transform:rotate(202deg)}.l5{width:190px;left:50%;top:118px;transform:translateX(-50%) rotate(90deg)}.l6{width:185px;left:50%;bottom:118px;transform:translateX(-50%) rotate(90deg)}
+    section{padding:86px 0}.section-head{max-width:880px;margin-bottom:34px}.section-head.center{text-align:center;margin-left:auto;margin-right:auto}.kicker{color:var(--cyan);text-transform:uppercase;font-size:12px;letter-spacing:.14em;font-weight:900;margin-bottom:10px}h2{font-size:clamp(31px,4vw,50px);line-height:1.08;letter-spacing:-1.35px;margin:0 0 14px}h3{font-size:22px;margin:0 0 10px}.section-head p{font-size:18px;color:var(--muted)}
+    .grid{display:grid;gap:18px}.cols-2{grid-template-columns:repeat(2,1fr)}.cols-3{grid-template-columns:repeat(3,1fr)}.card{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.072),rgba(255,255,255,.026)),var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:0 18px 54px rgba(0,0,0,.22)}.card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 0%,rgba(98,221,255,.105),transparent 34%);pointer-events:none}.card>*{position:relative;z-index:1}.icon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(98,221,255,.11);border:1px solid rgba(98,221,255,.22);color:var(--cyan);font-weight:900;margin-bottom:16px}.card.feature{border-color:rgba(98,221,255,.32);background:linear-gradient(145deg,rgba(98,221,255,.11),rgba(255,255,255,.026)),var(--panel)}
+    .band{background:linear-gradient(145deg,rgba(255,255,255,.072),rgba(255,255,255,.026)),var(--panel);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:34px}.layer{display:grid;gap:14px}.layer-row{display:grid;grid-template-columns:210px 1fr;gap:14px}.layer-label{border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.045);padding:16px;color:var(--cyan);font-weight:900;letter-spacing:.04em}.layer-items{display:flex;flex-wrap:wrap;gap:10px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.035);padding:14px}.layer-items span,.tag{padding:9px 12px;border-radius:9px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.052);color:#d8e8f7;font-size:14px;font-weight:750}.tech-cloud{display:flex;flex-wrap:wrap;gap:10px}
+    .process{display:grid;gap:14px;counter-reset:step}.step{counter-increment:step;display:grid;grid-template-columns:70px 1fr;gap:18px;align-items:start;padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.045);border-radius:var(--radius)}.step:before{content:"0" counter(step);width:50px;height:50px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--teal));color:#03101a;display:grid;place-items:center;font-weight:900}
+    .cta{background:radial-gradient(circle at 14% 30%,rgba(98,221,255,.17),transparent 32%),linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.025)),#07111f;border:1px solid var(--line2);border-radius:26px;padding:44px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;box-shadow:var(--shadow)}.cta p{margin-bottom:0}.legal{background:rgba(255,255,255,.025);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.legal .card{box-shadow:none;background:rgba(10,19,35,.74)}footer{padding:32px 0;color:var(--muted);background:rgba(5,9,20,.86)}.footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px;font-size:14px}.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+    @media(max-width:1020px){nav{display:none}.hero-grid,.cols-2,.cols-3,.layer-row{grid-template-columns:1fr}.cta{grid-template-columns:1fr}.hero{min-height:auto;padding-top:62px}.control{min-height:520px}}
+    @media(max-width:640px){.container{width:min(100% - 28px,var(--max))}.brand span{display:none}.button{width:100%}.actions{width:100%}h1{letter-spacing:-1.4px}section{padding:58px 0}.control{min-height:430px}.node{min-width:120px;padding:11px 12px}.n1{left:16px;top:42px}.n2{right:16px;top:88px}.n3{left:18px;bottom:54px}.n4{right:18px;bottom:42px}.n5,.n6,.line,.orbit{display:none}.core{width:96px;height:96px}.band,.card,.cta{padding:22px}.step{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+
+<body>
+<div class="page">
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <img src="assets/sk-data-systems-logo.png" alt="SK DATA SYSTEMS Logo">
+        <div><b>SK DATA SYSTEMS</b><span>SPS-Software · Maschinenautomatisierung · WinCC · OT/IT</span></div>
+      </a>
+      <nav><a href="#sps">SPS</a><a href="#automation">Maschinen</a><a href="#connectivity">Anbindung</a><a href="#scada">SCADA</a><a href="#referenz-amr-spannmodul">Referenzprojekt</a><a href="#referenzen">Referenzen</a><a href="#kontakt">Kontakt</a></nav>
+      <a class="button" href="#kontakt">Projekt anfragen</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span>SPS Software · Maschinenautomatisierung · Industrial Connectivity</div>
+          <h1><span class="gradient">Maschinen automatisieren.</span><br>Produktionsdaten integrieren.</h1>
+          <p class="lead">SPS-Softwareentwicklung, Maschinenprogrammierung, WinCC-/SCADA-Systeme und OT/IT-Integration für industrielle Produktionsumgebungen.</p>
+          <div class="actions"><a class="button primary" href="#sps">SPS-Kompetenzen ansehen</a><a class="button secondary" href="#kontakt">Kontakt aufnehmen</a><a class="button secondary" href="assets/SK_DATA_SYSTEMS_Portfolio_Premium_V13.pdf" download>Portfolio PDF</a></div>
+          <div class="pills"><span class="pill">Siemens SIMATIC S7</span><span class="pill">TIA Portal</span><span class="pill">SCL / Structured Text</span><span class="pill">WinCC / SCADA</span><span class="pill">OPC UA</span><span class="pill">MES Connectivity</span></div>
+        </div>
+        <aside class="control">
+          <div class="orbit o1"></div><div class="orbit o2"></div>
+          <div class="line l1"></div><div class="line l2"></div><div class="line l3"></div><div class="line l4"></div><div class="line l5"></div><div class="line l6"></div>
+          <div class="node n1"><b>SPS</b><span>SIMATIC · TIA</span></div><div class="node n2"><b>HMI / SCADA</b><span>WinCC · Diagnose</span></div><div class="node n3"><b>Maschine</b><span>Ablauf · Logik</span></div><div class="node n4"><b>OT/IT</b><span>OPC UA · MES</span></div><div class="node n5"><b>Software</b><span>SCL · FBs · States</span></div><div class="node n6"><b>Service</b><span>Alarme · Diagnose</span></div>
+          <div class="core"><img src="assets/sk-data-systems-logo.png" alt="SK DATA SYSTEMS Logo"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="sps">
+      <div class="container">
+        <div class="section-head"><div class="kicker">01 · SPS-Software & Maschinenprogrammierung</div><h2>Maschinenlogik, Ablaufsteuerung und Diagnosefunktionen</h2><p>Entwicklung, Erweiterung und Analyse von SPS-Software für industrielle Maschinen und Produktionsanlagen.</p></div>
+        <div class="grid cols-3">
+          <article class="card feature"><div class="icon">PLC</div><h3>SPS-Softwareentwicklung</h3><ul><li>Siemens SIMATIC S7</li><li>TIA Portal</li><li>SCL / Structured Text</li><li>Funktionsbausteine und modulare Programmstrukturen</li></ul></article>
+          <article class="card"><div class="icon">SEQ</div><h3>Ablaufsteuerungen</h3><ul><li>Maschinenablaeufe und Zustandslogik</li><li>Betriebsartenkonzepte</li><li>Hand-/Automatikbetrieb</li><li>Freigaben und Verriegelungen</li></ul></article>
+          <article class="card"><div class="icon">DIA</div><h3>Diagnosefunktionen</h3><ul><li>Fehler-, Warn- und Hinweismeldungen</li><li>Ursachen- und Abhilfeinformationen</li><li>Servicefunktionen</li><li>WinCC-/HMI-Anbindung</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="automation"><div class="container"><div class="section-head"><div class="kicker">02 · Maschinenautomatisierung</div><h2>Maschinenfunktionen strukturiert entwickeln und erweitern</h2><p>Von der bestehenden Maschinenlogik bis zur Erweiterung produktionsnaher Automatisierungsfunktionen.</p></div><div class="grid cols-3"><article class="card"><h3>Bestandsanlagen</h3><p>Analyse, Erweiterung und Stabilisierung bestehender SPS- und Maschinenprogramme.</p></article><article class="card"><h3>Maschinenfunktionen</h3><p>Programmierung von Ablauf-, Freigabe-, Verriegelungs- und Diagnosefunktionen.</p></article><article class="card"><h3>Inbetriebnahmeunterstuetzung</h3><p>Technische Unterstützung bei Test, Fehlersuche, Optimierung und Uebergabe.</p></article></div></div></section>
+
+    <section id="connectivity"><div class="container"><div class="section-head"><div class="kicker">03 · Maschinenanbindung & OT/IT</div><h2>Produktionsanlagen mit IT- und MES-Systemen verbinden</h2><p>Integration von Maschinen, Kommunikationsschnittstellen und Produktionsdaten in industrielle IT-Umgebungen.</p></div><div class="grid cols-3"><article class="card"><div class="icon">OT</div><h3>Maschinenanbindung</h3><ul><li>Neu- und Bestandsanlagen</li><li>Retrofit</li><li>Datenpunktklaerung</li><li>Signal- und Schnittstellenstrukturen</li></ul></article><article class="card"><div class="icon">COM</div><h3>Industrielle Kommunikation</h3><ul><li>OPC UA</li><li>MQTT</li><li>JSON</li><li>Industrial Ethernet / Profinet</li></ul></article><article class="card"><div class="icon">MES</div><h3>Produktionsdaten</h3><ul><li>Shopfloor Connectivity</li><li>MES-Integration</li><li>Datenmodelle</li><li>Produktionsinformationen</li></ul></article></div></div></section>
+
+    <section id="scada"><div class="container"><div class="section-head"><div class="kicker">04 · SCADA / HMI / WinCC</div><h2>Visualisierung, Alarmmanagement und Bedienkonzepte</h2><p>SCADA- und HMI-nahe Funktionen für Diagnose, Produktionsvisualisierung und Serviceunterstuetzung.</p></div><div class="grid cols-3"><article class="card"><h3>WinCC-Systeme</h3><p>WinCC-nahe Visualisierungs- und Integrationslogik für Produktionsanlagen und Maschinen.</p></article><article class="card"><h3>Alarmmanagement</h3><p>Fehler-, Warn- und Hinweismeldestrukturen mit Ursachen- und Abhilfeinformationen.</p></article><article class="card"><h3>Bedien- & Servicekonzepte</h3><p>Bediener- und Instandhalterfuehrung für produktionsnahe Diagnose- und Servicefunktionen.</p></article></div></div></section>
+
+    <section id="architecture"><div class="container"><div class="section-head"><div class="kicker">Technische Systemebenen</div><h2>Von der SPS bis zur Produktions-IT</h2><p>Saubere Trennung der technischen Ebenen: Maschinenlogik, Visualisierung, Kommunikation und Produktionsdaten.</p></div><div class="band layer"><div class="layer-row"><div class="layer-label">Maschine</div><div class="layer-items"><span>Sensorik</span><span>Aktoren</span><span>Spanntechnik</span><span>Robotik / AMR</span><span>Foerdertechnik</span></div></div><div class="layer-row"><div class="layer-label">SPS</div><div class="layer-items"><span>Siemens SIMATIC</span><span>TIA Portal</span><span>SCL</span><span>Funktionsbausteine</span><span>Betriebsartenlogik</span></div></div><div class="layer-row"><div class="layer-label">SCADA / HMI</div><div class="layer-items"><span>WinCC</span><span>Alarmmanagement</span><span>Diagnose</span><span>Bedienerfuehrung</span><span>Servicefunktionen</span></div></div><div class="layer-row"><div class="layer-label">Kommunikation</div><div class="layer-items"><span>OPC UA</span><span>MQTT</span><span>JSON</span><span>Profinet</span><span>Industrial Ethernet</span></div></div><div class="layer-row"><div class="layer-label">IT / MES</div><div class="layer-items"><span>MES</span><span>Produktionsdaten</span><span>Datenintegration</span><span>Shopfloor Connectivity</span><span>Reporting</span></div></div></div></div></section>
+
+    <section id="projekte"><div class="container"><div class="section-head"><div class="kicker">Typische Projekte</div><h2>Praxisnahe Unterstützung für Maschinen- und Produktionsumgebungen</h2></div><div class="grid cols-2"><article class="card"><h3>SPS-Software für Produktionsanlagen</h3><p>Ablaufsteuerungen, Betriebsarten, Diagnosefunktionen und Erweiterungen bestehender Maschinenprogramme.</p></article><article class="card"><h3>Maschinenanbindung an MES-Systeme</h3><p>OPC-UA-Kommunikation, Datenpunkte, Signalstrukturen und Schnittstellenlogik.</p></article><article class="card"><h3>WinCC- und Diagnosesysteme</h3><p>Alarmmanagement, Fehlerstrukturen, Serviceinformationen und HMI-Konzepte.</p></article><article class="card"><h3>Retrofit & Bestandsanlagen</h3><p>Analyse und Integration historisch gewachsener Anlagenstrukturen in moderne Kommunikationsumgebungen.</p></article></div></div></section>
+
+    
+
+
+
+<section id="referenzen">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Referenzprojekte</div>
+      <h2>Technische Projektbeispiele aus SPS-, Maschinen- und OT/IT-Umgebungen</h2>
+      <p>Neutral beschriebene Projektwelten ohne Kundennennung. Die Detailseiten können später mit weiteren Projekten erweitert werden.</p>
+    </div>
+
+    <div class="grid cols-3">
+      <article class="card feature">
+        <div class="icon">AMR</div>
+        <h3>AMR- & Spannmodul-Integration</h3>
+        <p>SPS-Logik, automatische Auftragserstellung, AMR-Joblogik, Sicherheits-/Verriegelungskonzept und priorisierte Diagnose.</p>
+        <div class="actions" style="margin:18px 0 0;">
+          <a class="button secondary" href="referenzen/amr-spannmodul.html">Projekt ansehen</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">DIA</div>
+        <h3>WinCC- & Diagnosekonzept</h3>
+        <p>Strukturierte Fehler-, Warn- und Hinweismeldungen mit Ursachen-/Abhilfeinformationen für Bediener und Instandhaltung.</p>
+        <div class="actions" style="margin:18px 0 0;">
+          <a class="button secondary" href="referenzen/wincc-diagnose.html">Projekt ansehen</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">OT</div>
+        <h3>Maschinenanbindung & OT/IT</h3>
+        <p>Datenfluss von Maschine, SPS und SCADA zur Produktions-IT mit OPC UA, MQTT, Signalstrukturen und MES-Anbindung.</p>
+        <div class="actions" style="margin:18px 0 0;">
+          <a class="button secondary" href="referenzen/maschinenanbindung-otit.html">Projekt ansehen</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt"><div class="container"><div class="cta"><div><div class="kicker">Kontakt</div><h2>Projekt oder Maschinenfunktion besprechen?</h2><p>Beschreiben Sie kurz Anlage, SPS-/HMI-System, Zielsystem und aktuelle Herausforderung.</p></div><div class="actions" style="margin:0"><a class="button primary" href="mailto:krauth.steffen@googlemail.com?subject=Projektanfrage%20SPS-%20und%20Maschinenautomatisierung&body=Hallo%20Herr%20Krauth,%0D%0A%0D%0Awir%20moechten%20folgendes%20Projekt%20besprechen:%0D%0A%0D%0AUnternehmen:%0D%0AAnsprechpartner:%0D%0AAnlagentyp:%0D%0ASPS-System:%0D%0AHMI%20/%20SCADA:%0D%0AKommunikationsschnittstellen:%0D%0AProjektziel:%0D%0AAktuelle%20Herausforderung%20/%20Problemstellung:%0D%0AZeitrahmen:%0D%0A%0D%0AMit%20freundlichen%20Gruessen">E-Mail schreiben</a><a class="button secondary" href="assets/SK_DATA_SYSTEMS_Portfolio_Premium_V13.pdf" download>Portfolio herunterladen</a></div></div></div></section>
+
+    <section class="legal" id="impressum"><div class="container"><div class="section-head"><div class="kicker">Rechtliches</div><h2>Impressum</h2></div><div class="card"><h3>Angaben gemaess Anbieterkennzeichnung</h3><p>SK DATA SYSTEMS<br>Steffen Krauth<br>Bachstr. 34<br>75056 Sulzfeld<br>Deutschland</p><h3>Kontakt</h3><p>E-Mail: <a href="mailto:krauth.steffen@googlemail.com">krauth.steffen@googlemail.com</a><br>Telefon: +49 1575 9605751</p><h3>Umsatzsteuer</h3><p>Umsatzsteuer-Identifikationsnummer gemaess § 27a Umsatzsteuergesetz:<br>folgt noch</p><p>Wirtschafts-Identifikationsnummer (W-IdNr.):<br>DE438599186</p><h3>Verantwortlich für den Inhalt</h3><p>Steffen Krauth<br>Bachstr. 34<br>75056 Sulzfeld</p><h3>Haftung für Inhalte</h3><p>Die Inhalte dieser Website wurden mit groesster Sorgfalt erstellt. Fuer die Richtigkeit, Vollstaendigkeit und Aktualitaet der Inhalte kann jedoch keine Gewaehr uebernommen werden.</p><h3>Haftung für Links</h3><p>Diese Website enthaelt derzeit keine externen Links ausser E-Mail-Verweisen.</p><h3>Urheberrecht</h3><p>Die auf dieser Website erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht.</p></div></div></section>
+
+    <section class="legal" id="datenschutz"><div class="container"><div class="section-head"><div class="kicker">Datenschutz</div><h2>Datenschutzerklaerung</h2><p>Vorbereitet für eine statische Website ohne Cookies, Tracking, Kontaktformular, externe Fonts und externe Skripte.</p></div><div class="card"><h3>1. Verantwortlicher</h3><p>SK DATA SYSTEMS<br>Steffen Krauth<br>Bachstr. 34<br>75056 Sulzfeld<br>E-Mail: <a href="mailto:krauth.steffen@googlemail.com">krauth.steffen@googlemail.com</a><br>Telefon: +49 1575 9605751</p><h3>2. Allgemeine Hinweise</h3><p>Diese Website dient der Darstellung freiberuflicher Leistungen im Bereich SPS-Softwareentwicklung, Maschinenautomatisierung, OT/IT-Integration und industrielle Kommunikation.</p><h3>3. Server-Logfiles</h3><p>Beim Aufruf dieser Website koennen durch den Hostinganbieter automatisch Informationen in Server-Logfiles verarbeitet werden. Dazu koennen IP-Adresse, Datum und Uhrzeit des Abrufs, aufgerufene Datei, uebertragene Datenmenge, Browsertyp, Betriebssystem und Referrer-URL gehoeren.</p><h3>4. Kontaktaufnahme per E-Mail</h3><p>Wenn Sie per E-Mail Kontakt aufnehmen, werden die von Ihnen uebermittelten Daten zur Bearbeitung Ihrer Anfrage verarbeitet.</p><h3>5. Keine Cookies und kein Tracking</h3><p>Diese Website setzt keine Analyse-Cookies, kein Webtracking, keine externen Marketingdienste und keine Social-Media-Plugins ein.</p><h3>6. Keine externen Schriftarten oder Skripte</h3><p>Die Website laedt keine externen Schriftarten, keine externen JavaScript-Bibliotheken und keine extern eingebundenen Medien von Drittanbietern.</p><h3>7. Pruefung vor Veroeffentlichung</h3><p>Diese Datenschutzerklaerung ist für eine einfache, statische Website vorbereitet. Vor Veroeffentlichung sollte sie anhand des tatsaechlichen Hostings geprueft werden.</p></div></div></section>
+  </main>
+
+  <footer><div class="container footer-inner"><div>© <span id="year"></span> SK DATA SYSTEMS · Steffen Krauth</div><div class="footer-links"><a href="#impressum">Impressum</a><a href="#datenschutz">Datenschutz</a><a href="#kontakt">Kontakt</a></div></div></footer>
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  const items = document.querySelectorAll(".card,.band,.cta,.step");
+  const observer = new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.animate([{opacity:0,transform:"translateY(14px)"},{opacity:1,transform:"translateY(0)"}],{duration:520,easing:"cubic-bezier(.2,.8,.2,1)",fill:"both"});observer.unobserve(entry.target)}})},{threshold:.14});
+  items.forEach(item=>observer.observe(item));
+</script>
+</body>
+</html>
