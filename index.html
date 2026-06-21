@@ -125,7 +125,7 @@
         <h3><span data-i18n data-de="AMR- &amp; Spannmodul-Integration" data-en="AMR &amp; clamping module integration">AMR- & Spannmodul-Integration</span></h3>
         <p><span data-i18n data-de="SPS-Logik, automatische Auftragserstellung, AMR-Joblogik, Sicherheits-/Verriegelungskonzept und priorisierte Diagnose." data-en="PLC logic, automatic order creation, AMR job logic, safety/interlock concept and prioritized diagnostics.">SPS-Logik, automatische Auftragserstellung, AMR-Joblogik, Sicherheits-/Verriegelungskonzept und priorisierte Diagnose.</span></p>
         <div class="actions" style="margin:18px 0 0;">
-          <a class="button secondary" href="referenzen/amr-spannmodul.html"><span data-i18n data-de="Projekt ansehen" data-en="View project">Projekt ansehen</span></a>
+          <a class="button secondary" href="referenzen/amr-spannmodul.html" data-reference-link><span data-i18n data-de="Projekt ansehen" data-en="View project">Projekt ansehen</span></a>
         </div>
       </article>
 
@@ -134,7 +134,7 @@
         <h3><span data-i18n data-de="WinCC- &amp; Diagnosekonzept" data-en="WinCC &amp; diagnostic concept">WinCC- & Diagnosekonzept</span></h3>
         <p><span data-i18n data-de="Strukturierte Fehler-, Warn- und Hinweismeldungen mit Ursachen-/Abhilfeinformationen für Bediener und Instandhaltung." data-en="Structured fault, warning and information messages with cause/corrective action details for operators and maintenance.">Strukturierte Fehler-, Warn- und Hinweismeldungen mit Ursachen-/Abhilfeinformationen für Bediener und Instandhaltung.</span></p>
         <div class="actions" style="margin:18px 0 0;">
-          <a class="button secondary" href="referenzen/wincc-diagnose.html"><span data-i18n data-de="Projekt ansehen" data-en="View project">Projekt ansehen</span></a>
+          <a class="button secondary" href="referenzen/wincc-diagnose.html" data-reference-link><span data-i18n data-de="Projekt ansehen" data-en="View project">Projekt ansehen</span></a>
         </div>
       </article>
 
@@ -143,7 +143,7 @@
         <h3><span data-i18n data-de="Maschinenanbindung &amp; OT/IT" data-en="Machine connectivity &amp; OT/IT">Maschinenanbindung & OT/IT</span></h3>
         <p><span data-i18n data-de="Datenfluss von Maschine, SPS und SCADA zur Produktions-IT mit OPC UA, MQTT, Signalstrukturen und MES-Anbindung." data-en="Data flow from machine, PLC and SCADA to production IT using OPC UA, MQTT, signal structures and MES integration.">Datenfluss von Maschine, SPS und SCADA zur Produktions-IT mit OPC UA, MQTT, Signalstrukturen und MES-Anbindung.</span></p>
         <div class="actions" style="margin:18px 0 0;">
-          <a class="button secondary" href="referenzen/maschinenanbindung-otit.html"><span data-i18n data-de="Projekt ansehen" data-en="View project">Projekt ansehen</span></a>
+          <a class="button secondary" href="referenzen/maschinenanbindung-otit.html" data-reference-link><span data-i18n data-de="Projekt ansehen" data-en="View project">Projekt ansehen</span></a>
         </div>
       </article>
     </div>
@@ -157,7 +157,7 @@
     <section class="legal" id="datenschutz">
       <div class="container">
         <div class="section-head">
-          <div class="kicker"><span data-i18n data-de="Datenschutz" data-en="Privacy policy"><span data-i18n data-de="Datenschutz" data-en="Privacy policy">Datenschutz</span></span></div>
+          <div class="kicker"><span data-i18n data-de="Datenschutz" data-en="Privacy policy">Datenschutz</span></div>
           <h2><span data-i18n data-de="Datenschutzerklärung" data-en="Privacy policy">Datenschutzerklärung</span></h2>
           <p><span data-i18n data-de="Diese Website ist als statische Informationsseite aufgebaut. Sie verwendet keine Analyse-Cookies, kein Webtracking, keine externen Schriftarten, keine Social-Media-Plugins und kein Kontaktformular." data-en="This website is designed as a static information website. It does not use analytics cookies, web tracking, external fonts, social media plugins or a contact form.">Diese Website ist als statische Informationsseite aufgebaut. Sie verwendet keine Analyse-Cookies, kein Webtracking, keine externen Schriftarten, keine Social-Media-Plugins und kein Kontaktformular.</span></p>
         </div>
@@ -207,7 +207,7 @@
     </section>
   </main>
 
-  <footer><div class="container footer-inner"><div>© <span id="year"></span> SK DATA SYSTEMS · Steffen Krauth</div><div class="footer-links"><a href="#impressum"><span data-i18n data-de="Impressum" data-en="Legal notice">Impressum</span></a><a href="#datenschutz"><span data-i18n data-de="Datenschutz" data-en="Privacy policy"><span data-i18n data-de="Datenschutz" data-en="Privacy policy">Datenschutz</span></span></a><a href="#kontakt"><span data-i18n data-de="Kontakt" data-en="Contact">Kontakt</span></a></div></div></footer>
+  <footer><div class="container footer-inner"><div>© <span id="year"></span> SK DATA SYSTEMS · Steffen Krauth</div><div class="footer-links"><a href="#impressum"><span data-i18n data-de="Impressum" data-en="Legal notice">Impressum</span></a><a href="#datenschutz"><span data-i18n data-de="Datenschutz" data-en="Privacy policy">Datenschutz</span></a><a href="#kontakt"><span data-i18n data-de="Kontakt" data-en="Contact">Kontakt</span></a></div></div></footer>
 </div>
 
 
@@ -218,25 +218,81 @@
       de: { href: "assets/SK_DATA_SYSTEMS_Portfolio_DE.pdf", download: "SK_DATA_SYSTEMS_Portfolio_DE.pdf" },
       en: { href: "assets/SK_DATA_SYSTEMS_Portfolio_EN.pdf", download: "SK_DATA_SYSTEMS_Portfolio_EN.pdf" }
     };
+
     const buttons = document.querySelectorAll("[data-lang-btn]");
     const translatable = document.querySelectorAll("[data-i18n]");
     const portfolioLinks = document.querySelectorAll("[data-portfolio-link]");
-    const setLang = (lang) => {
-      document.documentElement.lang = lang;
+    const referenceLinks = document.querySelectorAll("[data-reference-link]");
+    let currentLang = "de";
+
+    const normalizeLang = (value) => value === "en" ? "en" : "de";
+
+    const buildUrlWithLang = (href, lang) => {
+      const hash = href.includes("#") ? "#" + href.split("#")[1] : "";
+      const pathOnly = href.split("?")[0].split("#")[0];
+      return lang === "en" ? pathOnly + "?lang=en" + hash : pathOnly + hash;
+    };
+
+    const getInitialLang = () => {
+      const params = new URLSearchParams(window.location.search);
+      return normalizeLang(params.get("lang"));
+    };
+
+    const updateCurrentUrl = (lang) => {
+      const url = new URL(window.location.href);
+      if(lang === "en"){
+        url.searchParams.set("lang", "en");
+      }else{
+        url.searchParams.delete("lang");
+      }
+      window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+    };
+
+    const updateReferenceLinks = (lang) => {
+      referenceLinks.forEach(link => {
+        const baseHref = link.getAttribute("data-base-href") || link.getAttribute("href");
+        link.setAttribute("data-base-href", baseHref.split("?")[0].split("#")[0]);
+        link.setAttribute("href", buildUrlWithLang(baseHref, lang));
+      });
+    };
+
+    const setLang = (lang, updateUrl = true) => {
+      currentLang = normalizeLang(lang);
+      document.documentElement.lang = currentLang;
+
       translatable.forEach(el => {
-        const text = el.getAttribute("data-" + lang);
+        const text = el.getAttribute("data-" + currentLang);
         if(text !== null) el.textContent = text;
       });
+
       portfolioLinks.forEach(link => {
-        if(portfolio[lang]){
-          link.href = portfolio[lang].href;
-          link.setAttribute("download", portfolio[lang].download);
+        if(portfolio[currentLang]){
+          link.href = portfolio[currentLang].href;
+          link.setAttribute("download", portfolio[currentLang].download);
         }
       });
-      buttons.forEach(btn => btn.classList.toggle("active", btn.getAttribute("data-lang-btn") === lang));
+
+      updateReferenceLinks(currentLang);
+
+      buttons.forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-lang-btn") === currentLang);
+      });
+
+      if(updateUrl) updateCurrentUrl(currentLang);
     };
-    buttons.forEach(btn => btn.addEventListener("click", () => setLang(btn.getAttribute("data-lang-btn"))));
-    setLang("de");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => setLang(btn.getAttribute("data-lang-btn"), true));
+    });
+
+    referenceLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        const baseHref = link.getAttribute("data-base-href") || link.getAttribute("href");
+        link.setAttribute("href", buildUrlWithLang(baseHref, currentLang));
+      });
+    });
+
+    setLang(getInitialLang(), false);
   })();
 </script>
 

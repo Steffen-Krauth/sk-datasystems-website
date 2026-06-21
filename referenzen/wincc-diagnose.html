@@ -59,7 +59,7 @@
       <a href="../index.html#kontakt"><span data-i18n data-de="Kontakt" data-en="Contact">Kontakt</span></a>
     </nav>
     <div class="lang-switch" aria-label="Language switch"><button type="button" data-lang-btn="de" class="active">DE</button><button type="button" data-lang-btn="en">EN</button></div>
-    <a class="button" href="../index.html#kontakt"><span data-i18n data-de="Projekt anfragen" data-en="Request project"><span data-i18n data-de="Projekt anfragen" data-en="Request project">Projekt anfragen</span></span></a>
+    <a class="button" href="../index.html#kontakt"><span data-i18n data-de="Projekt anfragen" data-en="Request project">Projekt anfragen</span></a>
   </div>
 </header>
 
@@ -128,16 +128,69 @@
   (function(){
     const buttons = document.querySelectorAll("[data-lang-btn]");
     const translatable = document.querySelectorAll("[data-i18n]");
-    const setLang = (lang) => {
-      document.documentElement.lang = lang;
+    const homeLinks = document.querySelectorAll('a[href^="../index.html"]');
+    let currentLang = "de";
+
+    const normalizeLang = (value) => value === "en" ? "en" : "de";
+
+    const getInitialLang = () => {
+      const params = new URLSearchParams(window.location.search);
+      return normalizeLang(params.get("lang"));
+    };
+
+    const buildHomeUrl = (href, lang) => {
+      const hash = href.includes("#") ? "#" + href.split("#")[1] : "";
+      return lang === "en" ? "../index.html?lang=en" + hash : "../index.html" + hash;
+    };
+
+    const updateCurrentUrl = (lang) => {
+      const url = new URL(window.location.href);
+      if(lang === "en"){
+        url.searchParams.set("lang", "en");
+      }else{
+        url.searchParams.delete("lang");
+      }
+      window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+    };
+
+    const updateHomeLinks = (lang) => {
+      homeLinks.forEach(link => {
+        const baseHref = link.getAttribute("data-base-href") || link.getAttribute("href");
+        link.setAttribute("data-base-href", baseHref);
+        link.setAttribute("href", buildHomeUrl(baseHref, lang));
+      });
+    };
+
+    const setLang = (lang, updateUrl = true) => {
+      currentLang = normalizeLang(lang);
+      document.documentElement.lang = currentLang;
+
       translatable.forEach(el => {
-        const text = el.getAttribute("data-" + lang);
+        const text = el.getAttribute("data-" + currentLang);
         if(text !== null) el.textContent = text;
       });
-      buttons.forEach(btn => btn.classList.toggle("active", btn.getAttribute("data-lang-btn") === lang));
+
+      updateHomeLinks(currentLang);
+
+      buttons.forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-lang-btn") === currentLang);
+      });
+
+      if(updateUrl) updateCurrentUrl(currentLang);
     };
-    buttons.forEach(btn => btn.addEventListener("click", () => setLang(btn.getAttribute("data-lang-btn"))));
-    setLang("de");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => setLang(btn.getAttribute("data-lang-btn"), true));
+    });
+
+    homeLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        const baseHref = link.getAttribute("data-base-href") || link.getAttribute("href");
+        link.setAttribute("href", buildHomeUrl(baseHref, currentLang));
+      });
+    });
+
+    setLang(getInitialLang(), false);
   })();
 </script>
 
