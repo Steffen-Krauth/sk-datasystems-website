@@ -35,6 +35,11 @@
     .band{background:linear-gradient(145deg,rgba(255,255,255,.072),rgba(255,255,255,.026)),var(--panel);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:34px}.layer{display:grid;gap:14px}.layer-row{display:grid;grid-template-columns:210px 1fr;gap:14px}.layer-label{border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.045);padding:16px;color:var(--cyan);font-weight:900;letter-spacing:.04em}.layer-items{display:flex;flex-wrap:wrap;gap:10px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.035);padding:14px}.layer-items span,.tag{padding:9px 12px;border-radius:9px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.052);color:#d8e8f7;font-size:14px;font-weight:750}.tech-cloud{display:flex;flex-wrap:wrap;gap:10px}
     .process{display:grid;gap:14px;counter-reset:step}.step{counter-increment:step;display:grid;grid-template-columns:70px 1fr;gap:18px;align-items:start;padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.045);border-radius:var(--radius)}.step:before{content:"0" counter(step);width:50px;height:50px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--teal));color:#03101a;display:grid;place-items:center;font-weight:900}
     .cta{background:radial-gradient(circle at 14% 30%,rgba(98,221,255,.17),transparent 32%),linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.025)),#07111f;border:1px solid var(--line2);border-radius:26px;padding:44px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;box-shadow:var(--shadow)}.cta p{margin-bottom:0}.legal{background:rgba(255,255,255,.025);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.legal .card{box-shadow:none;background:rgba(10,19,35,.74)}footer{padding:32px 0;color:var(--muted);background:rgba(5,9,20,.86)}.footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px;font-size:14px}.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+
+    .lang-switch{display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:4px;background:rgba(255,255,255,.045)}
+    .lang-switch button{border:0;background:transparent;color:var(--muted);font-weight:900;font-size:12px;cursor:pointer;padding:7px 9px;border-radius:999px}
+    .lang-switch button.active{background:linear-gradient(135deg,var(--blue),var(--teal));color:#03101a}
+
     @media(max-width:1020px){nav{display:none}.hero-grid,.cols-2,.cols-3,.layer-row{grid-template-columns:1fr}.cta{grid-template-columns:1fr}.hero{min-height:auto;padding-top:62px}.control{min-height:520px}}
     @media(max-width:640px){.container{width:min(100% - 28px,var(--max))}.brand span{display:none}.button{width:100%}.actions{width:100%}h1{letter-spacing:-1.4px}section{padding:58px 0}.control{min-height:430px}.node{min-width:120px;padding:11px 12px}.n1{left:16px;top:42px}.n2{right:16px;top:88px}.n3{left:18px;bottom:54px}.n4{right:18px;bottom:42px}.n5,.n6,.line,.orbit{display:none}.core{width:96px;height:96px}.band,.card,.cta{padding:22px}.step{grid-template-columns:1fr}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
@@ -46,14 +51,15 @@
   <div class="container nav">
     <a class="brand" href="../index.html#top">
       <img src="../assets/sk-data-systems-logo.png" alt="SK DATA SYSTEMS Logo">
-      <div><b>SK DATA SYSTEMS</b><span>SPS-Software · Maschinenautomatisierung · OT/IT</span></div>
+      <div><b>SK DATA SYSTEMS</b><span><span data-i18n data-de="SPS-Software · Maschinenautomatisierung · OT/IT" data-en="PLC software · Machine automation · OT/IT">SPS-Software · Maschinenautomatisierung · OT/IT</span></span></div>
     </a>
     <nav>
-      <a href="../index.html#sps">SPS</a>
-      <a href="../index.html#referenzen">Referenzen</a>
-      <a href="../index.html#kontakt">Kontakt</a>
+      <a href="../index.html#sps"><span data-i18n data-de="SPS" data-en="PLC">SPS</span></a>
+      <a href="../index.html#referenzen"><span data-i18n data-de="Referenzen" data-en="References">Referenzen</span></a>
+      <a href="../index.html#kontakt"><span data-i18n data-de="Kontakt" data-en="Contact">Kontakt</span></a>
     </nav>
-    <a class="button" href="../index.html#kontakt">Projekt anfragen</a>
+    <div class="lang-switch" aria-label="Language switch"><button type="button" data-lang-btn="de" class="active">DE</button><button type="button" data-lang-btn="en">EN</button></div>
+    <a class="button" href="../index.html#kontakt"><span data-i18n data-de="Projekt anfragen" data-en="Request project"><span data-i18n data-de="Projekt anfragen" data-en="Request project">Projekt anfragen</span></span></a>
   </div>
 </header>
 
@@ -61,12 +67,12 @@
 <section class="hero" style="min-height:auto;">
   <div class="container">
     <div class="section-head">
-      <div class="kicker">Referenzprojekt · Maschinenanbindung / OT/IT / MES</div>
-      <h1><span class="gradient">Maschinenanbindung & OT/IT</span></h1>
-      <p class="lead">Datenfluss von Maschine, SPS und SCADA zur Produktions-IT mit OPC UA, MQTT, Signalstrukturen und MES-Anbindung.</p>
+      <div class="kicker"><span data-i18n data-de="Referenzprojekt · Maschinenanbindung / OT/IT / MES" data-en="Reference project · Machine connectivity / OT/IT / MES">Referenzprojekt · Maschinenanbindung / OT/IT / MES</span></div>
+      <h1><span class="gradient"><span data-i18n data-de="Maschinenanbindung &amp; OT/IT" data-en="Machine connectivity &amp; OT/IT">Maschinenanbindung & OT/IT</span></span></h1>
+      <p class="lead"><span data-i18n data-de="Datenfluss von Maschine, SPS und SCADA zur Produktions-IT mit OPC UA, MQTT, Signalstrukturen und MES-Anbindung." data-en="Data flow from machine, PLC and SCADA to production IT using OPC UA, MQTT, signal structures and MES connectivity.">Datenfluss von Maschine, SPS und SCADA zur Produktions-IT mit OPC UA, MQTT, Signalstrukturen und MES-Anbindung.</span></p>
       <div class="actions">
-        <a class="button secondary" href="../index.html#referenzen">Zurück zu Referenzen</a>
-        <a class="button primary" href="../index.html#kontakt">Projekt anfragen</a>
+        <a class="button secondary" href="../index.html#referenzen"><span data-i18n data-de="Zurück zu Referenzen" data-en="Back to references">Zurück zu Referenzen</span></a>
+        <a class="button primary" href="../index.html#kontakt"><span data-i18n data-de="Projekt anfragen" data-en="Request project">Projekt anfragen</span></a>
       </div>
     </div>
   </div>
@@ -78,29 +84,29 @@
       
             <article class="card">
               <div class="icon">OT</div>
-              <h3>Ausgangssituation</h3>
-              <p>Produktionsanlagen und Bestandsmaschinen sollen strukturiert an SCADA-, MES- oder IT-Systeme angebunden werden.</p>
+              <h3><span data-i18n data-de="Ausgangssituation" data-en="Initial situation">Ausgangssituation</span></h3>
+              <p><span data-i18n data-de="Produktionsanlagen und Bestandsmaschinen sollen strukturiert an SCADA-, MES- oder IT-Systeme angebunden werden." data-en="Production systems and existing machines need to be connected to SCADA, MES or IT systems in a structured way.">Produktionsanlagen und Bestandsmaschinen sollen strukturiert an SCADA-, MES- oder IT-Systeme angebunden werden.</span></p>
               
             </article>
             
             <article class="card">
               <div class="icon">COM</div>
-              <h3>Kommunikation</h3>
+              <h3><span data-i18n data-de="Kommunikation" data-en="Communication">Kommunikation</span></h3>
               <p></p>
-              <ul><li>OPC UA</li><li>MQTT</li><li>JSON</li><li>Industrial Ethernet / Profinet</li><li>Signal- und Datenpunktstruktur</li></ul>
+              <ul><li><span data-i18n data-de="OPC UA" data-en="OPC UA">OPC UA</span></li><li><span data-i18n data-de="MQTT" data-en="MQTT">MQTT</span></li><li><span data-i18n data-de="JSON" data-en="JSON">JSON</span></li><li><span data-i18n data-de="Industrial Ethernet / Profinet" data-en="Industrial Ethernet / Profinet">Industrial Ethernet / Profinet</span></li><li><span data-i18n data-de="Signal- und Datenpunktstruktur" data-en="Signal and data point structure">Signal- und Datenpunktstruktur</span></li></ul>
             </article>
             
             <article class="card">
               <div class="icon">MES</div>
-              <h3>Produktionsdaten</h3>
+              <h3><span data-i18n data-de="Produktionsdaten" data-en="Production data">Produktionsdaten</span></h3>
               <p></p>
-              <ul><li>Maschinenzustände</li><li>Auftrags- und Paletteninformationen</li><li>Diagnose- und Statusmeldungen</li><li>Schnittstellenlogik für MES-/Leitsysteme</li></ul>
+              <ul><li><span data-i18n data-de="Maschinenzustände" data-en="Machine states">Maschinenzustände</span></li><li><span data-i18n data-de="Auftrags- und Paletteninformationen" data-en="Order and pallet information">Auftrags- und Paletteninformationen</span></li><li><span data-i18n data-de="Diagnose- und Statusmeldungen" data-en="Diagnostic and status messages">Diagnose- und Statusmeldungen</span></li><li><span data-i18n data-de="Schnittstellenlogik für MES-/Leitsysteme" data-en="Interface logic for MES/control systems">Schnittstellenlogik für MES-/Leitsysteme</span></li></ul>
             </article>
             
             <article class="card">
               <div class="icon">SYS</div>
-              <h3>Ergebnis</h3>
-              <p>Saubere Trennung von Maschinenlogik, Kommunikationsschicht und Produktionsdaten. Dadurch bleiben SPS, SCADA und IT-Anbindung nachvollziehbar und wartbar.</p>
+              <h3><span data-i18n data-de="Ergebnis" data-en="Result">Ergebnis</span></h3>
+              <p><span data-i18n data-de="Saubere Trennung von Maschinenlogik, Kommunikationsschicht und Produktionsdaten. Dadurch bleiben SPS, SCADA und IT-Anbindung nachvollziehbar und wartbar." data-en="Clean separation of machine logic, communication layer and production data. This keeps PLC, SCADA and IT connectivity transparent and maintainable.">Saubere Trennung von Maschinenlogik, Kommunikationsschicht und Produktionsdaten. Dadurch bleiben SPS, SCADA und IT-Anbindung nachvollziehbar und wartbar.</span></p>
               
             </article>
             
@@ -112,10 +118,28 @@
 <footer>
   <div class="container footer-inner">
     <div>© <span id="year"></span> SK DATA SYSTEMS · Steffen Krauth</div>
-    <div class="footer-links"><a href="../index.html#impressum">Impressum</a><a href="../index.html#datenschutz">Datenschutz</a><a href="../index.html#kontakt">Kontakt</a></div>
+    <div class="footer-links"><a href="../index.html#impressum"><span data-i18n data-de="Impressum" data-en="Legal notice">Impressum</span></a><a href="../index.html#datenschutz"><span data-i18n data-de="Datenschutz" data-en="Privacy policy">Datenschutz</span></a><a href="../index.html#kontakt"><span data-i18n data-de="Kontakt" data-en="Contact">Kontakt</span></a></div>
   </div>
 </footer>
 </div>
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+
+<script>
+  (function(){
+    const buttons = document.querySelectorAll("[data-lang-btn]");
+    const translatable = document.querySelectorAll("[data-i18n]");
+    const setLang = (lang) => {
+      document.documentElement.lang = lang;
+      translatable.forEach(el => {
+        const text = el.getAttribute("data-" + lang);
+        if(text !== null) el.textContent = text;
+      });
+      buttons.forEach(btn => btn.classList.toggle("active", btn.getAttribute("data-lang-btn") === lang));
+    };
+    buttons.forEach(btn => btn.addEventListener("click", () => setLang(btn.getAttribute("data-lang-btn"))));
+    setLang("de");
+  })();
+</script>
+
 </body>
 </html>

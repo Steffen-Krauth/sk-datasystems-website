@@ -35,6 +35,11 @@
     .band{background:linear-gradient(145deg,rgba(255,255,255,.072),rgba(255,255,255,.026)),var(--panel);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:34px}.layer{display:grid;gap:14px}.layer-row{display:grid;grid-template-columns:210px 1fr;gap:14px}.layer-label{border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.045);padding:16px;color:var(--cyan);font-weight:900;letter-spacing:.04em}.layer-items{display:flex;flex-wrap:wrap;gap:10px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.035);padding:14px}.layer-items span,.tag{padding:9px 12px;border-radius:9px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.052);color:#d8e8f7;font-size:14px;font-weight:750}.tech-cloud{display:flex;flex-wrap:wrap;gap:10px}
     .process{display:grid;gap:14px;counter-reset:step}.step{counter-increment:step;display:grid;grid-template-columns:70px 1fr;gap:18px;align-items:start;padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.045);border-radius:var(--radius)}.step:before{content:"0" counter(step);width:50px;height:50px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--teal));color:#03101a;display:grid;place-items:center;font-weight:900}
     .cta{background:radial-gradient(circle at 14% 30%,rgba(98,221,255,.17),transparent 32%),linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.025)),#07111f;border:1px solid var(--line2);border-radius:26px;padding:44px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;box-shadow:var(--shadow)}.cta p{margin-bottom:0}.legal{background:rgba(255,255,255,.025);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.legal .card{box-shadow:none;background:rgba(10,19,35,.74)}footer{padding:32px 0;color:var(--muted);background:rgba(5,9,20,.86)}.footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px;font-size:14px}.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+
+    .lang-switch{display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:4px;background:rgba(255,255,255,.045)}
+    .lang-switch button{border:0;background:transparent;color:var(--muted);font-weight:900;font-size:12px;cursor:pointer;padding:7px 9px;border-radius:999px}
+    .lang-switch button.active{background:linear-gradient(135deg,var(--blue),var(--teal));color:#03101a}
+
     @media(max-width:1020px){nav{display:none}.hero-grid,.cols-2,.cols-3,.layer-row{grid-template-columns:1fr}.cta{grid-template-columns:1fr}.hero{min-height:auto;padding-top:62px}.control{min-height:520px}}
     @media(max-width:640px){.container{width:min(100% - 28px,var(--max))}.brand span{display:none}.button{width:100%}.actions{width:100%}h1{letter-spacing:-1.4px}section{padding:58px 0}.control{min-height:430px}.node{min-width:120px;padding:11px 12px}.n1{left:16px;top:42px}.n2{right:16px;top:88px}.n3{left:18px;bottom:54px}.n4{right:18px;bottom:42px}.n5,.n6,.line,.orbit{display:none}.core{width:96px;height:96px}.band,.card,.cta{padding:22px}.step{grid-template-columns:1fr}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
@@ -46,14 +51,15 @@
   <div class="container nav">
     <a class="brand" href="../index.html#top">
       <img src="../assets/sk-data-systems-logo.png" alt="SK DATA SYSTEMS Logo">
-      <div><b>SK DATA SYSTEMS</b><span>SPS-Software · Maschinenautomatisierung · OT/IT</span></div>
+      <div><b>SK DATA SYSTEMS</b><span><span data-i18n data-de="SPS-Software · Maschinenautomatisierung · OT/IT" data-en="PLC software · Machine automation · OT/IT">SPS-Software · Maschinenautomatisierung · OT/IT</span></span></div>
     </a>
     <nav>
-      <a href="../index.html#sps">SPS</a>
-      <a href="../index.html#referenzen">Referenzen</a>
-      <a href="../index.html#kontakt">Kontakt</a>
+      <a href="../index.html#sps"><span data-i18n data-de="SPS" data-en="PLC">SPS</span></a>
+      <a href="../index.html#referenzen"><span data-i18n data-de="Referenzen" data-en="References">Referenzen</span></a>
+      <a href="../index.html#kontakt"><span data-i18n data-de="Kontakt" data-en="Contact">Kontakt</span></a>
     </nav>
-    <a class="button" href="../index.html#kontakt">Projekt anfragen</a>
+    <div class="lang-switch" aria-label="Language switch"><button type="button" data-lang-btn="de" class="active">DE</button><button type="button" data-lang-btn="en">EN</button></div>
+    <a class="button" href="../index.html#kontakt"><span data-i18n data-de="Projekt anfragen" data-en="Request project"><span data-i18n data-de="Projekt anfragen" data-en="Request project">Projekt anfragen</span></span></a>
   </div>
 </header>
 
@@ -61,12 +67,12 @@
 <section class="hero" style="min-height:auto;">
   <div class="container">
     <div class="section-head">
-      <div class="kicker">Referenzprojekt · HMI / WinCC / Diagnose</div>
-      <h1><span class="gradient">WinCC- und Diagnosekonzept</span></h1>
-      <p class="lead">Strukturierte Fehler-, Warn- und Hinweismeldungen mit Ursachen- und Abhilfeinformationen für Bediener und Instandhaltung.</p>
+      <div class="kicker"><span data-i18n data-de="Referenzprojekt · HMI / WinCC / Diagnose" data-en="Reference project · HMI / WinCC / diagnostics">Referenzprojekt · HMI / WinCC / Diagnose</span></div>
+      <h1><span class="gradient"><span data-i18n data-de="WinCC- und Diagnosekonzept" data-en="WinCC and diagnostics concept">WinCC- und Diagnosekonzept</span></span></h1>
+      <p class="lead"><span data-i18n data-de="Strukturierte Fehler-, Warn- und Hinweismeldungen mit Ursachen- und Abhilfeinformationen für Bediener und Instandhaltung." data-en="Structured fault, warning and notice messages with cause and corrective-action information for operators and maintenance.">Strukturierte Fehler-, Warn- und Hinweismeldungen mit Ursachen- und Abhilfeinformationen für Bediener und Instandhaltung.</span></p>
       <div class="actions">
-        <a class="button secondary" href="../index.html#referenzen">Zurück zu Referenzen</a>
-        <a class="button primary" href="../index.html#kontakt">Projekt anfragen</a>
+        <a class="button secondary" href="../index.html#referenzen"><span data-i18n data-de="Zurück zu Referenzen" data-en="Back to references">Zurück zu Referenzen</span></a>
+        <a class="button primary" href="../index.html#kontakt"><span data-i18n data-de="Projekt anfragen" data-en="Request project">Projekt anfragen</span></a>
       </div>
     </div>
   </div>
@@ -78,30 +84,30 @@
       
             <article class="card">
               <div class="icon">DIA</div>
-              <h3>Ausgangssituation</h3>
-              <p>Produktionsnahe Maschinen- und Anlagenfunktionen benötigen klare Meldestrukturen. Ziel ist eine Diagnose, die Bediener und Instandhaltung schnell zur Ursache führt.</p>
+              <h3><span data-i18n data-de="Ausgangssituation" data-en="Initial situation">Ausgangssituation</span></h3>
+              <p><span data-i18n data-de="Produktionsnahe Maschinen- und Anlagenfunktionen benötigen klare Meldestrukturen. Ziel ist eine Diagnose, die Bediener und Instandhaltung schnell zur Ursache führt." data-en="Production-related machine and system functions require clear message structures. The goal is diagnostics that quickly guide operators and maintenance teams to the root cause.">Produktionsnahe Maschinen- und Anlagenfunktionen benötigen klare Meldestrukturen. Ziel ist eine Diagnose, die Bediener und Instandhaltung schnell zur Ursache führt.</span></p>
               
             </article>
             
             <article class="card">
               <div class="icon">ALM</div>
-              <h3>Meldestruktur</h3>
+              <h3><span data-i18n data-de="Meldestruktur" data-en="Message structure">Meldestruktur</span></h3>
               <p></p>
-              <ul><li>Fehler-, Warn- und Hinweismeldungen</li><li>Ursachen- und Abhilfeinformationen</li><li>Priorisierung nach Anlagenzustand und Bedienrelevanz</li><li>Vermeidung unklarer Folgefehler</li></ul>
+              <ul><li><span data-i18n data-de="Fehler-, Warn- und Hinweismeldungen" data-en="Fault, warning and notice messages">Fehler-, Warn- und Hinweismeldungen</span></li><li><span data-i18n data-de="Ursachen- und Abhilfeinformationen" data-en="Cause and corrective-action information">Ursachen- und Abhilfeinformationen</span></li><li><span data-i18n data-de="Priorisierung nach Anlagenzustand und Bedienrelevanz" data-en="Prioritization based on machine state and operator relevance">Priorisierung nach Anlagenzustand und Bedienrelevanz</span></li><li><span data-i18n data-de="Vermeidung unklarer Folgefehler" data-en="Avoidance of unclear follow-up faults">Vermeidung unklarer Folgefehler</span></li></ul>
             </article>
             
             <article class="card">
               <div class="icon">HMI</div>
-              <h3>HMI-/WinCC-Anbindung</h3>
+              <h3><span data-i18n data-de="HMI-/WinCC-Anbindung" data-en="HMI / WinCC integration">HMI-/WinCC-Anbindung</span></h3>
               <p></p>
-              <ul><li>Bediener- und Instandhaltertexte</li><li>Serviceinformationen</li><li>Status- und Prozessmeldungen</li><li>strukturierte Darstellung für schnelle Eingrenzung</li></ul>
+              <ul><li><span data-i18n data-de="Bediener- und Instandhaltertexte" data-en="Operator and maintenance texts">Bediener- und Instandhaltertexte</span></li><li><span data-i18n data-de="Serviceinformationen" data-en="Service information">Serviceinformationen</span></li><li><span data-i18n data-de="Status- und Prozessmeldungen" data-en="Status and process messages">Status- und Prozessmeldungen</span></li><li><span data-i18n data-de="strukturierte Darstellung für schnelle Eingrenzung" data-en="Structured display for fast fault isolation">strukturierte Darstellung für schnelle Eingrenzung</span></li></ul>
             </article>
             
             <article class="card">
               <div class="icon">PLC</div>
-              <h3>SPS-Bezug</h3>
+              <h3><span data-i18n data-de="SPS-Bezug" data-en="PLC relation">SPS-Bezug</span></h3>
               <p></p>
-              <ul><li>Diagnosebits aus SPS-Logik</li><li>Freigaben, Sensorik, Aktoren, Anforderungen und Timeouts</li><li>Betriebsarten und Verriegelungen als Diagnosegrundlage</li></ul>
+              <ul><li><span data-i18n data-de="Diagnosebits aus SPS-Logik" data-en="Diagnostic bits from PLC logic">Diagnosebits aus SPS-Logik</span></li><li><span data-i18n data-de="Freigaben, Sensorik, Aktoren, Anforderungen und Timeouts" data-en="Permits, sensors, actuators, requests and timeouts">Freigaben, Sensorik, Aktoren, Anforderungen und Timeouts</span></li><li><span data-i18n data-de="Betriebsarten und Verriegelungen als Diagnosegrundlage" data-en="Operating modes and interlocks as a diagnostic basis">Betriebsarten und Verriegelungen als Diagnosegrundlage</span></li></ul>
             </article>
             
     </div>
@@ -112,10 +118,28 @@
 <footer>
   <div class="container footer-inner">
     <div>© <span id="year"></span> SK DATA SYSTEMS · Steffen Krauth</div>
-    <div class="footer-links"><a href="../index.html#impressum">Impressum</a><a href="../index.html#datenschutz">Datenschutz</a><a href="../index.html#kontakt">Kontakt</a></div>
+    <div class="footer-links"><a href="../index.html#impressum"><span data-i18n data-de="Impressum" data-en="Legal notice">Impressum</span></a><a href="../index.html#datenschutz"><span data-i18n data-de="Datenschutz" data-en="Privacy policy">Datenschutz</span></a><a href="../index.html#kontakt"><span data-i18n data-de="Kontakt" data-en="Contact">Kontakt</span></a></div>
   </div>
 </footer>
 </div>
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+
+<script>
+  (function(){
+    const buttons = document.querySelectorAll("[data-lang-btn]");
+    const translatable = document.querySelectorAll("[data-i18n]");
+    const setLang = (lang) => {
+      document.documentElement.lang = lang;
+      translatable.forEach(el => {
+        const text = el.getAttribute("data-" + lang);
+        if(text !== null) el.textContent = text;
+      });
+      buttons.forEach(btn => btn.classList.toggle("active", btn.getAttribute("data-lang-btn") === lang));
+    };
+    buttons.forEach(btn => btn.addEventListener("click", () => setLang(btn.getAttribute("data-lang-btn"))));
+    setLang("de");
+  })();
+</script>
+
 </body>
 </html>

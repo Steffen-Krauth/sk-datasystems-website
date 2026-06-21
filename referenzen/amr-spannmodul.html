@@ -35,6 +35,11 @@
     .band{background:linear-gradient(145deg,rgba(255,255,255,.072),rgba(255,255,255,.026)),var(--panel);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:34px}.layer{display:grid;gap:14px}.layer-row{display:grid;grid-template-columns:210px 1fr;gap:14px}.layer-label{border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.045);padding:16px;color:var(--cyan);font-weight:900;letter-spacing:.04em}.layer-items{display:flex;flex-wrap:wrap;gap:10px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.035);padding:14px}.layer-items span,.tag{padding:9px 12px;border-radius:9px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.052);color:#d8e8f7;font-size:14px;font-weight:750}.tech-cloud{display:flex;flex-wrap:wrap;gap:10px}
     .process{display:grid;gap:14px;counter-reset:step}.step{counter-increment:step;display:grid;grid-template-columns:70px 1fr;gap:18px;align-items:start;padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.045);border-radius:var(--radius)}.step:before{content:"0" counter(step);width:50px;height:50px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--teal));color:#03101a;display:grid;place-items:center;font-weight:900}
     .cta{background:radial-gradient(circle at 14% 30%,rgba(98,221,255,.17),transparent 32%),linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.025)),#07111f;border:1px solid var(--line2);border-radius:26px;padding:44px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;box-shadow:var(--shadow)}.cta p{margin-bottom:0}.legal{background:rgba(255,255,255,.025);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.legal .card{box-shadow:none;background:rgba(10,19,35,.74)}footer{padding:32px 0;color:var(--muted);background:rgba(5,9,20,.86)}.footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px;font-size:14px}.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+
+    .lang-switch{display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:4px;background:rgba(255,255,255,.045)}
+    .lang-switch button{border:0;background:transparent;color:var(--muted);font-weight:900;font-size:12px;cursor:pointer;padding:7px 9px;border-radius:999px}
+    .lang-switch button.active{background:linear-gradient(135deg,var(--blue),var(--teal));color:#03101a}
+
     @media(max-width:1020px){nav{display:none}.hero-grid,.cols-2,.cols-3,.layer-row{grid-template-columns:1fr}.cta{grid-template-columns:1fr}.hero{min-height:auto;padding-top:62px}.control{min-height:520px}}
     @media(max-width:640px){.container{width:min(100% - 28px,var(--max))}.brand span{display:none}.button{width:100%}.actions{width:100%}h1{letter-spacing:-1.4px}section{padding:58px 0}.control{min-height:430px}.node{min-width:120px;padding:11px 12px}.n1{left:16px;top:42px}.n2{right:16px;top:88px}.n3{left:18px;bottom:54px}.n4{right:18px;bottom:42px}.n5,.n6,.line,.orbit{display:none}.core{width:96px;height:96px}.band,.card,.cta{padding:22px}.step{grid-template-columns:1fr}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
@@ -46,14 +51,15 @@
   <div class="container nav">
     <a class="brand" href="../index.html#top">
       <img src="../assets/sk-data-systems-logo.png" alt="SK DATA SYSTEMS Logo">
-      <div><b>SK DATA SYSTEMS</b><span>SPS-Software · Maschinenautomatisierung · OT/IT</span></div>
+      <div><b>SK DATA SYSTEMS</b><span><span data-i18n data-de="SPS-Software · Maschinenautomatisierung · OT/IT" data-en="PLC software · Machine automation · OT/IT">SPS-Software · Maschinenautomatisierung · OT/IT</span></span></div>
     </a>
     <nav>
-      <a href="../index.html#sps">SPS</a>
-      <a href="../index.html#referenzen">Referenzen</a>
-      <a href="../index.html#kontakt">Kontakt</a>
+      <a href="../index.html#sps"><span data-i18n data-de="SPS" data-en="PLC">SPS</span></a>
+      <a href="../index.html#referenzen"><span data-i18n data-de="Referenzen" data-en="References">Referenzen</span></a>
+      <a href="../index.html#kontakt"><span data-i18n data-de="Kontakt" data-en="Contact">Kontakt</span></a>
     </nav>
-    <a class="button" href="../index.html#kontakt">Projekt anfragen</a>
+    <div class="lang-switch" aria-label="Language switch"><button type="button" data-lang-btn="de" class="active">DE</button><button type="button" data-lang-btn="en">EN</button></div>
+    <a class="button" href="../index.html#kontakt"><span data-i18n data-de="Projekt anfragen" data-en="Request project"><span data-i18n data-de="Projekt anfragen" data-en="Request project">Projekt anfragen</span></span></a>
   </div>
 </header>
 
@@ -61,12 +67,12 @@
 <section class="hero" style="min-height:auto;">
   <div class="container">
     <div class="section-head">
-      <div class="kicker">Referenzprojekt · SPS / AMR / Spannmodul / Prozessleitsystem</div>
-      <h1><span class="gradient">AMR- und Spannmodul-Integration</span></h1>
-      <p class="lead">SPS-Software, automatische Auftragserstellung, AMR-Joblogik, Sicherheits-/Verriegelungskonzept und priorisierte Diagnose in einer produktionsnahen Automatisierungsumgebung.</p>
+      <div class="kicker"><span data-i18n data-de="Referenzprojekt · SPS / AMR / Spannmodul / Prozessleitsystem" data-en="Reference project · PLC / AMR / clamping module / process control system">Referenzprojekt · SPS / AMR / Spannmodul / Prozessleitsystem</span></div>
+      <h1><span class="gradient"><span data-i18n data-de="AMR- und Spannmodul-Integration" data-en="AMR and clamping module integration">AMR- und Spannmodul-Integration</span></span></h1>
+      <p class="lead"><span data-i18n data-de="SPS-Software, automatische Auftragserstellung, AMR-Joblogik, Sicherheits-/Verriegelungskonzept und priorisierte Diagnose in einer produktionsnahen Automatisierungsumgebung." data-en="PLC software, automatic order generation, AMR job logic, safety and interlock concept and prioritized diagnostics in a production-oriented automation environment.">SPS-Software, automatische Auftragserstellung, AMR-Joblogik, Sicherheits-/Verriegelungskonzept und priorisierte Diagnose in einer produktionsnahen Automatisierungsumgebung.</span></p>
       <div class="actions">
-        <a class="button secondary" href="../index.html#referenzen">Zurück zu Referenzen</a>
-        <a class="button primary" href="../index.html#kontakt">Projekt anfragen</a>
+        <a class="button secondary" href="../index.html#referenzen"><span data-i18n data-de="Zurück zu Referenzen" data-en="Back to references">Zurück zu Referenzen</span></a>
+        <a class="button primary" href="../index.html#kontakt"><span data-i18n data-de="Projekt anfragen" data-en="Request project">Projekt anfragen</span></a>
       </div>
     </div>
   </div>
@@ -78,46 +84,46 @@
       
             <article class="card">
               <div class="icon">PLC</div>
-              <h3>Ausgangssituation</h3>
-              <p>Integration eines Spannmoduls in eine automatisierte Produktions- und Materialflussumgebung mit AMR-Anbindung. Die Herausforderung lag in der Kopplung von Prozessleitsystem, Spannmodul-SPS, Palettenlogik, AMR-Aufträgen, Freigaben, Rückmeldungen, Diagnose und Sicherheitsbetrachtung.</p>
+              <h3><span data-i18n data-de="Ausgangssituation" data-en="Initial situation">Ausgangssituation</span></h3>
+              <p><span data-i18n data-de="Integration eines Spannmoduls in eine automatisierte Produktions- und Materialflussumgebung mit AMR-Anbindung. Die Herausforderung lag in der Kopplung von Prozessleitsystem, Spannmodul-SPS, Palettenlogik, AMR-Aufträgen, Freigaben, Rückmeldungen, Diagnose und Sicherheitsbetrachtung." data-en="Integration of a clamping module into an automated production and material flow environment with AMR connectivity. The challenge was to connect the process control system, clamping module PLC, pallet logic, AMR jobs, permits, feedback signals, diagnostics and safety considerations.">Integration eines Spannmoduls in eine automatisierte Produktions- und Materialflussumgebung mit AMR-Anbindung. Die Herausforderung lag in der Kopplung von Prozessleitsystem, Spannmodul-SPS, Palettenlogik, AMR-Aufträgen, Freigaben, Rückmeldungen, Diagnose und Sicherheitsbetrachtung.</span></p>
               
             </article>
             
             <article class="card">
               <div class="icon">DATA</div>
-              <h3>Datenfluss & Systemkopplung</h3>
+              <h3><span data-i18n data-de="Datenfluss &amp; Systemkopplung" data-en="Data flow &amp; system coupling">Datenfluss & Systemkopplung</span></h3>
               <p></p>
-              <ul><li>Datenübertragung vom Prozessleitsystem zur Spannmodul-SPS</li><li>Übergabe von Paletten-, Produkt- und Auftragsinformationen</li><li>Schnittstellenstruktur zwischen Leitsystem, SPS und AMR</li><li>Abgleich von Maschinenzustand, Palettenstatus und Prozessfreigaben</li></ul>
+              <ul><li><span data-i18n data-de="Datenübertragung vom Prozessleitsystem zur Spannmodul-SPS" data-en="Data transfer from the process control system to the clamping module PLC">Datenübertragung vom Prozessleitsystem zur Spannmodul-SPS</span></li><li><span data-i18n data-de="Übergabe von Paletten-, Produkt- und Auftragsinformationen" data-en="Transfer of pallet, product and order information">Übergabe von Paletten-, Produkt- und Auftragsinformationen</span></li><li><span data-i18n data-de="Schnittstellenstruktur zwischen Leitsystem, SPS und AMR" data-en="Interface structure between control system, PLC and AMR">Schnittstellenstruktur zwischen Leitsystem, SPS und AMR</span></li><li><span data-i18n data-de="Abgleich von Maschinenzustand, Palettenstatus und Prozessfreigaben" data-en="Evaluation of machine state, pallet status and process permits">Abgleich von Maschinenzustand, Palettenstatus und Prozessfreigaben</span></li></ul>
             </article>
             
             <article class="card">
               <div class="icon">JOB</div>
-              <h3>Automatische Auftragserstellung & AMR-Joblogik</h3>
+              <h3><span data-i18n data-de="Automatische Auftragserstellung &amp; AMR-Joblogik" data-en="Automatic order generation &amp; AMR job logic">Automatische Auftragserstellung & AMR-Joblogik</span></h3>
               <p></p>
-              <ul><li>automatisierte Erstellung und Freigabe von AMR-Aufträgen</li><li>Joblogik abhängig von PalletReady, PalletPresent und Prozessfreigaben</li><li>PermitPlace- und PermitPick-Bewertung</li><li>Vermeidung fehlerhafter Jobgenerierung bei nicht erfüllten Vorbedingungen</li></ul>
+              <ul><li><span data-i18n data-de="automatisierte Erstellung und Freigabe von AMR-Aufträgen" data-en="Automated creation and release of AMR jobs">automatisierte Erstellung und Freigabe von AMR-Aufträgen</span></li><li><span data-i18n data-de="Joblogik abhängig von PalletReady, PalletPresent und Prozessfreigaben" data-en="Job logic based on PalletReady, PalletPresent and process permits">Joblogik abhängig von PalletReady, PalletPresent und Prozessfreigaben</span></li><li><span data-i18n data-de="PermitPlace- und PermitPick-Bewertung" data-en="PermitPlace and PermitPick evaluation">PermitPlace- und PermitPick-Bewertung</span></li><li><span data-i18n data-de="Vermeidung fehlerhafter Jobgenerierung bei nicht erfüllten Vorbedingungen" data-en="Prevention of incorrect job generation when preconditions are not met">Vermeidung fehlerhafter Jobgenerierung bei nicht erfüllten Vorbedingungen</span></li></ul>
             </article>
             
             <article class="card">
               <div class="icon">SAFE</div>
-              <h3>Sicherheits-, Freigabe- und Verriegelungskonzept</h3>
+              <h3><span data-i18n data-de="Sicherheits-, Freigabe- und Verriegelungskonzept" data-en="Safety, permit and interlock concept">Sicherheits-, Freigabe- und Verriegelungskonzept</span></h3>
               <p></p>
-              <ul><li>Precondition-Konzept für sichere Start- und Jobbedingungen</li><li>Verriegelungen gegen unzulässige Spann-/Entspann- und AMR-Abläufe</li><li>Überwachung relevanter Sensorik, Aktorik und Maschinenzustände</li><li>klare Trennung von Handbetrieb, Automatikbetrieb und Schnittstellenlogik</li></ul>
+              <ul><li><span data-i18n data-de="Precondition-Konzept für sichere Start- und Jobbedingungen" data-en="Precondition concept for safe start and job conditions">Precondition-Konzept für sichere Start- und Jobbedingungen</span></li><li><span data-i18n data-de="Verriegelungen gegen unzulässige Spann-/Entspann- und AMR-Abläufe" data-en="Interlocks against invalid clamp/unclamp and AMR sequences">Verriegelungen gegen unzulässige Spann-/Entspann- und AMR-Abläufe</span></li><li><span data-i18n data-de="Überwachung relevanter Sensorik, Aktorik und Maschinenzustände" data-en="Monitoring of relevant sensors, actuators and machine states">Überwachung relevanter Sensorik, Aktorik und Maschinenzustände</span></li><li><span data-i18n data-de="klare Trennung von Handbetrieb, Automatikbetrieb und Schnittstellenlogik" data-en="Clear separation of manual mode, automatic mode and interface logic">klare Trennung von Handbetrieb, Automatikbetrieb und Schnittstellenlogik</span></li></ul>
             </article>
             
             <article class="card">
               <div class="icon">DIA</div>
-              <h3>Diagnosepriorisierung & Servicekonzept</h3>
+              <h3><span data-i18n data-de="Diagnosepriorisierung &amp; Servicekonzept" data-en="Diagnostic prioritization &amp; service concept">Diagnosepriorisierung & Servicekonzept</span></h3>
               <p></p>
-              <ul><li>Priorisierung von Fehlern, Warnungen und Hinweisen</li><li>Diagnose nach Freigaben, Sensorik, Aktoren, Anforderungen, Timeouts und Verriegelungen</li><li>Bediener- und Instandhaltertexte für HMI/WinCC</li><li>bessere Eingrenzung von Folgefehlern und Grundursachen</li></ul>
+              <ul><li><span data-i18n data-de="Priorisierung von Fehlern, Warnungen und Hinweisen" data-en="Prioritization of faults, warnings and notices">Priorisierung von Fehlern, Warnungen und Hinweisen</span></li><li><span data-i18n data-de="Diagnose nach Freigaben, Sensorik, Aktoren, Anforderungen, Timeouts und Verriegelungen" data-en="Diagnostics based on permits, sensors, actuators, requests, timeouts and interlocks">Diagnose nach Freigaben, Sensorik, Aktoren, Anforderungen, Timeouts und Verriegelungen</span></li><li><span data-i18n data-de="Bediener- und Instandhaltertexte für HMI/WinCC" data-en="Operator and maintenance texts for HMI/WinCC">Bediener- und Instandhaltertexte für HMI/WinCC</span></li><li><span data-i18n data-de="bessere Eingrenzung von Folgefehlern und Grundursachen" data-en="Improved separation of follow-up faults and root causes">bessere Eingrenzung von Folgefehlern und Grundursachen</span></li></ul>
             </article>
             
             <article class="card">
               <div class="icon">AMR</div>
-              <h3>AMR-Rückmeldungen & Schnittstellenstatus</h3>
+              <h3><span data-i18n data-de="AMR-Rückmeldungen &amp; Schnittstellenstatus" data-en="AMR feedback signals &amp; interface status">AMR-Rückmeldungen & Schnittstellenstatus</span></h3>
               <p></p>
-              <ul><li>ClampDone / UnclampDone Rückmeldelogik</li><li>Bewertung von JobManager- und AMR-Aktivzuständen</li><li>Rückmeldung nur bei erfüllten Vorbedingungen</li><li>klare Zustandsführung zwischen Spannmodul, Palette und AMR</li></ul>
+              <ul><li><span data-i18n data-de="ClampDone / UnclampDone Rückmeldelogik" data-en="ClampDone / UnclampDone feedback logic">ClampDone / UnclampDone Rückmeldelogik</span></li><li><span data-i18n data-de="Bewertung von JobManager- und AMR-Aktivzuständen" data-en="Evaluation of JobManager and AMR active states">Bewertung von JobManager- und AMR-Aktivzuständen</span></li><li><span data-i18n data-de="Rückmeldung nur bei erfüllten Vorbedingungen" data-en="Feedback only when preconditions are fulfilled">Rückmeldung nur bei erfüllten Vorbedingungen</span></li><li><span data-i18n data-de="klare Zustandsführung zwischen Spannmodul, Palette und AMR" data-en="Clear state handling between clamping module, pallet and AMR">klare Zustandsführung zwischen Spannmodul, Palette und AMR</span></li></ul>
             </article>
-            <div class="band layer" style="margin-top:18px;"><div class="layer-row"><div class="layer-label">Leitsystem</div><div class="layer-items"><span>Auftragsdaten</span><span>Produktdaten</span><span>Palettenstatus</span><span>Prozessfreigaben</span><span>Diagnosemeldungen</span></div></div><div class="layer-row"><div class="layer-label">SPS-Ebene</div><div class="layer-items"><span>SIMATIC / TIA</span><span>SCL-Logik</span><span>Funktionsbausteine</span><span>Betriebsarten</span><span>Verriegelungen</span></div></div><div class="layer-row"><div class="layer-label">Spannmodul</div><div class="layer-items"><span>Spannen</span><span>Entspannen</span><span>Sensorik</span><span>Aktoren</span><span>Timeouts</span></div></div><div class="layer-row"><div class="layer-label">AMR / Jobs</div><div class="layer-items"><span>automatische Auftragserstellung</span><span>PalletReady</span><span>PermitPlace</span><span>PermitPick</span><span>ClampDone / UnclampDone</span></div></div><div class="layer-row"><div class="layer-label">Diagnose</div><div class="layer-items"><span>Priorisierung</span><span>Fehler</span><span>Warnungen</span><span>Hinweise</span><span>Ursache / Abhilfe</span></div></div></div>
+            <div class="band layer" style="margin-top:18px;"><div class="layer-row"><div class="layer-label"><span data-i18n data-de="Leitsystem" data-en="Control system">Leitsystem</span></div><div class="layer-items"><span><span data-i18n data-de="Auftragsdaten" data-en="Order data">Auftragsdaten</span></span><span><span data-i18n data-de="Produktdaten" data-en="Product data">Produktdaten</span></span><span><span data-i18n data-de="Palettenstatus" data-en="Pallet status">Palettenstatus</span></span><span><span data-i18n data-de="Prozessfreigaben" data-en="Process permits">Prozessfreigaben</span></span><span><span data-i18n data-de="Diagnosemeldungen" data-en="Diagnostic messages">Diagnosemeldungen</span></span></div></div><div class="layer-row"><div class="layer-label"><span data-i18n data-de="SPS-Ebene" data-en="PLC level">SPS-Ebene</span></div><div class="layer-items"><span><span data-i18n data-de="SIMATIC / TIA" data-en="SIMATIC / TIA">SIMATIC / TIA</span></span><span><span data-i18n data-de="SCL-Logik" data-en="SCL logic">SCL-Logik</span></span><span><span data-i18n data-de="Funktionsbausteine" data-en="Function blocks">Funktionsbausteine</span></span><span><span data-i18n data-de="Betriebsarten" data-en="Operating modes">Betriebsarten</span></span><span><span data-i18n data-de="Verriegelungen" data-en="Interlocks">Verriegelungen</span></span></div></div><div class="layer-row"><div class="layer-label"><span data-i18n data-de="Spannmodul" data-en="Clamping module">Spannmodul</span></div><div class="layer-items"><span><span data-i18n data-de="Spannen" data-en="Clamping">Spannen</span></span><span><span data-i18n data-de="Entspannen" data-en="Unclamping">Entspannen</span></span><span><span data-i18n data-de="Sensorik" data-en="Sensors">Sensorik</span></span><span><span data-i18n data-de="Aktoren" data-en="Actuators">Aktoren</span></span><span><span data-i18n data-de="Timeouts" data-en="Timeouts">Timeouts</span></span></div></div><div class="layer-row"><div class="layer-label"><span data-i18n data-de="AMR / Jobs" data-en="AMR / Jobs">AMR / Jobs</span></div><div class="layer-items"><span><span data-i18n data-de="automatische Auftragserstellung" data-en="Automatic order generation">automatische Auftragserstellung</span></span><span><span data-i18n data-de="PalletReady" data-en="PalletReady">PalletReady</span></span><span><span data-i18n data-de="PermitPlace" data-en="PermitPlace">PermitPlace</span></span><span><span data-i18n data-de="PermitPick" data-en="PermitPick">PermitPick</span></span><span><span data-i18n data-de="ClampDone / UnclampDone" data-en="ClampDone / UnclampDone">ClampDone / UnclampDone</span></span></div></div><div class="layer-row"><div class="layer-label"><span data-i18n data-de="Diagnose" data-en="Diagnostics">Diagnose</span></div><div class="layer-items"><span><span data-i18n data-de="Priorisierung" data-en="Prioritization">Priorisierung</span></span><span><span data-i18n data-de="Fehler" data-en="Faults">Fehler</span></span><span><span data-i18n data-de="Warnungen" data-en="Warnings">Warnungen</span></span><span><span data-i18n data-de="Hinweise" data-en="Notices">Hinweise</span></span><span><span data-i18n data-de="Ursache / Abhilfe" data-en="Cause / corrective action">Ursache / Abhilfe</span></span></div></div></div>
     </div>
   </div>
 </section>
@@ -126,10 +132,28 @@
 <footer>
   <div class="container footer-inner">
     <div>© <span id="year"></span> SK DATA SYSTEMS · Steffen Krauth</div>
-    <div class="footer-links"><a href="../index.html#impressum">Impressum</a><a href="../index.html#datenschutz">Datenschutz</a><a href="../index.html#kontakt">Kontakt</a></div>
+    <div class="footer-links"><a href="../index.html#impressum"><span data-i18n data-de="Impressum" data-en="Legal notice">Impressum</span></a><a href="../index.html#datenschutz"><span data-i18n data-de="Datenschutz" data-en="Privacy policy">Datenschutz</span></a><a href="../index.html#kontakt"><span data-i18n data-de="Kontakt" data-en="Contact">Kontakt</span></a></div>
   </div>
 </footer>
 </div>
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+
+<script>
+  (function(){
+    const buttons = document.querySelectorAll("[data-lang-btn]");
+    const translatable = document.querySelectorAll("[data-i18n]");
+    const setLang = (lang) => {
+      document.documentElement.lang = lang;
+      translatable.forEach(el => {
+        const text = el.getAttribute("data-" + lang);
+        if(text !== null) el.textContent = text;
+      });
+      buttons.forEach(btn => btn.classList.toggle("active", btn.getAttribute("data-lang-btn") === lang));
+    };
+    buttons.forEach(btn => btn.addEventListener("click", () => setLang(btn.getAttribute("data-lang-btn"))));
+    setLang("de");
+  })();
+</script>
+
 </body>
 </html>
